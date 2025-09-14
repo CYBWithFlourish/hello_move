@@ -76,7 +76,7 @@ fun test_division() {
     
     let result = test_scenario::take_from_sender<calculator::Result>(&scenario);
     assert!(calculator::get_answer(&result) == 7, 0);
-    assert!(calculator::get_operation(&result) == string::utf8(b"DIvision"), 1); // Note: keeping your typo for consistency
+    assert!(calculator::get_operation(&result) == string::utf8(b"Division"), 1);
     
     test_scenario::return_to_sender(&scenario, result);
     test_scenario::end(scenario);

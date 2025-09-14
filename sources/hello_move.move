@@ -1,5 +1,8 @@
 module hello_move::calculator;
 use std::string::String;
+use sui::object::{Self, UID};
+use sui::transfer;
+use sui::tx_context::TxContext;
 
 public struct Result has key{
     id: UID,
@@ -51,7 +54,7 @@ public fun Division(num1: u8, num2: u16, addr: address, ctx: &mut TxContext){
     let res = Result{
         id: object::new(ctx),
         answer: result,
-        operation: b"DIvision".to_string()
+        operation: b"Division".to_string()
     };
     transfer::transfer(res, addr);
 }
